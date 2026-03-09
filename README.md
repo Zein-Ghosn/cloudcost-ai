@@ -37,3 +37,41 @@ Infrastructure
 - Infrastructure as Code with Terraform
 
 ## Project Structure
+
+
+
+                     ┌─────────────────────┐
+                     │       User          │
+                     │   Browser Client    │
+                     └──────────┬──────────┘
+                                │
+                                ▼
+                    ┌──────────────────────┐
+                    │      CloudFront      │
+                    │   Global CDN + TLS   │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │         S3           │
+                    │ React Static Website │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                     ┌───────────────────┐
+                     │    API Gateway    │
+                     │   REST API Layer  │
+                     └─────────┬─────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │       AWS Lambda     │
+                    │  Backend Functions   │
+                    └─────────┬────────────┘
+                              │
+                ┌─────────────┼─────────────┐
+                ▼             ▼             ▼
+        ┌─────────────┐ ┌─────────────┐ ┌───────────────┐
+        │ DynamoDB    │ │ Cost        │ │ Amazon Bedrock│
+        │ CostReports │ │ Explorer API│ │ AI Analysis   │
+        └─────────────┘ └─────────────┘ └───────────────┘
